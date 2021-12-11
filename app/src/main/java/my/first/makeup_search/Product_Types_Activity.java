@@ -1,30 +1,39 @@
 package my.first.makeup_search;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Product_List_Activity extends AppCompatActivity implements
-        RecyclerViewAdapter.ProductTypeClickListener, NetworkingService.NetworkingListener {
+public class Product_Types_Activity extends AppCompatActivity implements
+        ProductTypeRecyclerViewAdapter.ProductTypeClickListener, NetworkingService.NetworkingListener {
     ArrayList<Product_Type_Item> productList = new ArrayList<>();
     RecyclerView recyclerView;
-    RecyclerViewAdapter adapter;
+    ProductTypeRecyclerViewAdapter adapter;
     NetworkingService networkingService;
     JsonService jsonService;
-
+    String BrandSelected;
+    String productTypeSelected;
     TextView selectedBrandName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
+        setContentView(R.layout.activity_product_types);
 
-        String BrandSelected = getIntent().getStringExtra("Selected Brand Name");
+        BrandSelected = getIntent().getStringExtra("Selected Brand Name");
+        // Getting the saved state
+        if (savedInstanceState != null) {
+            BrandSelected = savedInstanceState.getString("Selected Brand Name");
+        }
+
         System.out.println(BrandSelected);
 
         selectedBrandName = (TextView) findViewById(R.id.brand_name_selected);
@@ -37,7 +46,7 @@ public class Product_List_Activity extends AppCompatActivity implements
 
         recyclerView = findViewById(R.id.productTypeList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerViewAdapter(this,productList);
+        adapter = new ProductTypeRecyclerViewAdapter(this,productList);
         adapter.listener = this;
         recyclerView.setAdapter(adapter);
 
@@ -45,6 +54,13 @@ public class Product_List_Activity extends AppCompatActivity implements
 //        adapter.notifyDataSetChanged();
 
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("Selected Brand Name", BrandSelected);
+    }
+
 
     @Override
     public void APINetworkListener(String jsonString) {
@@ -55,7 +71,23 @@ public class Product_List_Activity extends AppCompatActivity implements
     }
 
     @Override
-    public void onProductTypeSelected(Product_Type_Item selectedProductType) {
+    public void APINetworkingListerForImage(Bitmap image) {
+
+
 
     }
+
+    @Override
+    public void onProductTypeSelected(Product_Type_Item selectedProductType) {
+
+        productTypeSelected = selectedProductType.getProductTypeName();
+        Intent intent = new Intent(this,Product_List_Activity.class);
+
+        intent.putExtra("Brand Name Selected", String.valueOf(BrandSelected));
+        intent.putExtra("Product Type Selected", String.valueOf(productTypeSelected));
+        startActivity(intent);
+
+    }
+
+
 }

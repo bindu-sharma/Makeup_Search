@@ -1,5 +1,7 @@
 package my.first.makeup_search;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -24,7 +26,7 @@ public class NetworkingService {
 
         interface NetworkingListener{
             void APINetworkListener(String jsonString);
-            //void APINetworkingListerForImage(Bitmap image);
+            void APINetworkingListerForImage(Bitmap image);
         }
 
         NetworkingListener listener;
@@ -34,6 +36,30 @@ public class NetworkingService {
             String completeURL = url + text;
             connect(completeURL);
         }
+
+    public void getImageData(String imageLink){
+        String imageURL = imageLink;
+        networkingExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL urlObj = new URL(imageURL);
+                    InputStream in = ((InputStream)urlObj.getContent());
+                    Bitmap imageData = BitmapFactory.decodeStream(in);
+                    networkHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            listener.APINetworkingListerForImage(imageData);
+                        }
+                    });
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
         private void connect(String url){
             networkingExecutor.execute(new Runnable() {

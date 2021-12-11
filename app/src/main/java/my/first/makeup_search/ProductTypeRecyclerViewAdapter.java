@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class ProductTypeRecyclerViewAdapter extends RecyclerView.Adapter<ProductTypeRecyclerViewAdapter.ViewHolder> {
 
         Context context;
         ArrayList<Product_Type_Item> productTypeList; //List of Product Types
@@ -42,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }
 
-        RecyclerViewAdapter(Context myContext, ArrayList<Product_Type_Item> productList){
+        ProductTypeRecyclerViewAdapter(Context myContext, ArrayList<Product_Type_Item> productList){
             context = myContext;
             productTypeList = productList;
 
@@ -51,8 +51,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         @Override
 
         // Function to inflate row xml in the list xml
-        public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context).inflate(R.layout.product_item,parent,false);
+        public ProductTypeRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(context).inflate(R.layout.product_type_item,parent,false);
             return new ViewHolder(view);
         }
 
