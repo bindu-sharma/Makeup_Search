@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/makeup_image">
 
     <Spinner
         android:id="@+id/brand_name_spinnner"
-        android:background="@color/LightCoral"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="75dp"
+        android:background="@color/LightPink"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

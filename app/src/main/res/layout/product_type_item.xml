@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/LightPink">
+    android:background="@color/Maroon">
 
     <TextView android:id="@+id/productName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Product Type"
         android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="@color/White"
         />
 
 </LinearLayout>
