@@ -81,7 +81,7 @@ public class ProductItemRecyclerViewAdapter extends
 
         //  holder.getProduct_type().setText(productTypeList.get(position));
         holder.getProduct_item_name().setText(productItemList.get(position).getProductName());
-        holder.getProduct_item_price().setText(productItemList.get(position).getProductPrice()+"");
+        holder.getProduct_item_price().setText("$" + (productItemList.get(position).getProductPrice()+""));
         System.out.println(productItemList.get(position).getImage());
 
         Picasso.with(context).load(productItemList.get(position).getImage()).into(holder.getProduct_item_image());

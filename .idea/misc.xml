@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/activity_favourites.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/activity_product_list.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/activity_product_list2.xml" value="0.16770833333333332" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/product_type_item.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/spinner_item.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/layout/tets.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/BINDU/AndroidStudioProjects/Makeup_Search/app/src/main/res/menu/menu.xml" value="0.16770833333333332" />
       </map>
     </option>
   </component>

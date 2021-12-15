@@ -13,5 +13,11 @@ public class MyApp extends Application {
     public NetworkingService getNetworkingService() {
         return networkingService;
     }
+
+    private Database_Manager databaseManager = new Database_Manager();
+
+    public Database_Manager getDatabaseManager() {
+        return databaseManager;
+    }
 }
 

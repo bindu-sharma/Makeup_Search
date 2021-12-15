@@ -3,11 +3,31 @@
 
     <string-array name="brand_names">
         <item>Select a Brand...</item>
+        <item>almay</item>
+        <item>boosh</item>
+        <item>cargo cosmetics</item>
         <item>clinique</item>
         <item>colourpop</item>
+        <item>covergirl</item>
+        <item>deciem</item>
         <item>dior</item>
+        <item>lotus cosmetics usa</item>
         <item>maybelline</item>
+        <item>milani</item>
+        <item>mineral fusion</item>
+        <item>misa</item>
         <item>nyx</item>
+        <item>pacifica</item>
+        <item>penny lane organics</item>
+        <item>physicians formula</item>
+        <item>pure anada</item>
+        <item>rejuva minerals</item>
+        <item>revlon</item>
+
+        <item>suncoat</item>
+        <item>w3llpeople</item>
+        <item>zorah biocosmetiques</item>
+
 
     </string-array>
 

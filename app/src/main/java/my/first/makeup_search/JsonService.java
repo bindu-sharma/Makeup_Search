@@ -5,6 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class JsonService {
 //Function to parse JSON for Product Types List
@@ -17,10 +19,26 @@ public class JsonService {
                     JSONArray jsonArray = new JSONArray(jsonProductList);
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String productType = jsonObject.getString("product_type");
-
-                    allProductsFromAPI.add(new Product_Type_Item(productType));
-                    System.out.println(allProductsFromAPI);
+                    Product_Type_Item newProduct = new Product_Type_Item(productType);
+                    System.out.println("Element contained" + allProductsFromAPI.contains(newProduct));
+                   if(!(allProductsFromAPI.contains(newProduct))) {
+                       allProductsFromAPI.add(newProduct);
+                    }
                 }
+
+
+//                LinkedHashSet<Product_Type_Item> primesWithoutDuplicates
+//                        = new LinkedHashSet<Product_Type_Item>(allProductsFromAPI);
+//
+//                System.out.println("duplcate" + allProductsFromAPI);
+//                System.out.println(primesWithoutDuplicates);
+//
+//                allProductsFromAPI.clear();
+//
+//                allProductsFromAPI.addAll(primesWithoutDuplicates);
+
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

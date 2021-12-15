@@ -1,9 +1,17 @@
 package my.first.makeup_search;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Product_List_Item {
-    String image;
-    String productName;
-    double productPrice;
+
+    @PrimaryKey(autoGenerate = true)
+            int id;
+
+    public String image;
+   public String productName;
+   public double productPrice;
 
     public String getImage() {
         return image;
