@@ -13,13 +13,17 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Favourites_Activity"
-            android:exported="false" />
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="my.first.makeup_search.MainActivity" />
+        </activity>
         <activity
             android:name=".Product_List_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="my.first.makeup_search.Product_Types_Activity" />
+                android:value="my.first.makeup_search.MainActivity" />
         </activity>
         <activity
             android:name=".Product_Types_Activity"

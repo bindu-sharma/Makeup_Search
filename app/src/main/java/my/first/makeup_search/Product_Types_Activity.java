@@ -1,6 +1,7 @@
 package my.first.makeup_search;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +22,7 @@ public class Product_Types_Activity extends AppCompatActivity implements
     JsonService jsonService;
     String BrandSelected;
     String productTypeSelected;
-    TextView selectedBrandName;
+   // TextView selectedBrandName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,11 @@ public class Product_Types_Activity extends AppCompatActivity implements
         setContentView(R.layout.activity_product_types);
 
         BrandSelected = getIntent().getStringExtra("Selected Brand Name");
+        ActionBar actionBar = getSupportActionBar();
+
+        if(actionBar!=null){
+            actionBar.setTitle(BrandSelected);
+       }
         // Getting the saved state
         if (savedInstanceState != null) {
             BrandSelected = savedInstanceState.getString("Selected Brand Name");
@@ -36,8 +42,8 @@ public class Product_Types_Activity extends AppCompatActivity implements
 
         System.out.println(BrandSelected);
 
-        selectedBrandName = (TextView) findViewById(R.id.brand_name_selected);
-        selectedBrandName.setText(BrandSelected);
+        //selectedBrandName = (TextView) findViewById(R.id.brand_name_selected);
+       // selectedBrandName.setText(BrandSelected);
 
         networkingService = ( (MyApp)getApplication()).getNetworkingService();
         jsonService = ( (MyApp)getApplication()).getJsonService();

@@ -5,17 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Product_Types_Activity">
-    <TextView
-        android:id="@+id/brand_name_selected"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:background="@color/Gray"
-        android:textColor="@color/White"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productTypeList"
@@ -24,7 +14,7 @@
         android:background="@color/Pink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/brand_name_selected"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

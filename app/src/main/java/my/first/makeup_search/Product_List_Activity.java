@@ -1,5 +1,6 @@
 package my.first.makeup_search;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,9 +41,16 @@ public class Product_List_Activity extends AppCompatActivity implements
         productPrice = findViewById(R.id.product_price);
         productImage = findViewById(R.id.product_image);
          String selectedBrandName = getIntent().getStringExtra("Brand Name Selected");
+
          System.out.println("Selected Brand Name = " + selectedBrandName);
 
          String selectedProductType = getIntent().getStringExtra("Product Type Selected");
+        ActionBar actionBar = getSupportActionBar();
+
+        if(actionBar!=null){
+            actionBar.setTitle(selectedProductType + "s from " + selectedBrandName);
+        }
+
         System.out.println("Selected Product Name = " + selectedProductType);
        // http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=lipstick
 
