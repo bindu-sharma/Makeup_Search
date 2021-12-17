@@ -28,22 +28,14 @@ public class Product_Types_Activity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_types);
+            BrandSelected = ( (MyApp)getApplication()).getProductType();
 
-        BrandSelected = getIntent().getStringExtra("Selected Brand Name");
+        ( (MyApp)getApplication()).setProductType(BrandSelected);
         ActionBar actionBar = getSupportActionBar();
 
         if(actionBar!=null){
             actionBar.setTitle(BrandSelected);
        }
-        // Getting the saved state
-        if (savedInstanceState != null) {
-            BrandSelected = savedInstanceState.getString("Selected Brand Name");
-        }
-
-        System.out.println(BrandSelected);
-
-        //selectedBrandName = (TextView) findViewById(R.id.brand_name_selected);
-       // selectedBrandName.setText(BrandSelected);
 
         networkingService = ( (MyApp)getApplication()).getNetworkingService();
         jsonService = ( (MyApp)getApplication()).getJsonService();
@@ -56,12 +48,12 @@ public class Product_Types_Activity extends AppCompatActivity implements
         adapter.listener = this;
         recyclerView.setAdapter(adapter);
     }
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("Selected Brand Name", BrandSelected);
+        outState.putString("Brand", BrandSelected);
     }
+
 
 
     @Override
@@ -87,4 +79,5 @@ public class Product_Types_Activity extends AppCompatActivity implements
         startActivity(intent);
 
     }
+
 }

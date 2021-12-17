@@ -19,5 +19,15 @@ public class MyApp extends Application {
     public Database_Manager getDatabaseManager() {
         return databaseManager;
     }
+
+    String productType;
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public String getProductType() {
+        return productType;
+    }
 }
 

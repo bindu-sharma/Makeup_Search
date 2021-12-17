@@ -52,9 +52,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String brandSelected = String.valueOf(parent.getItemAtPosition(position));
         System.out.println(brandSelected);
         if(position!=0){
+            ( (MyApp)getApplication()).setProductType(brandSelected);
+
             Toast.makeText(this, brandSelected + " selected", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, Product_Types_Activity.class);
-            intent.putExtra("Selected Brand Name",brandSelected);
+           // intent.putExtra("Selected Brand Name",brandSelected);
             startActivity(intent);
         }
     }
