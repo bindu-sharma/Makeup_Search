@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Makeup_Search</string>
+    <string name="about_us">Makeup_Seach App is designed in December, 2021.
+                        This App helps you find your favourite makeup products easily. Also, you can save products to your favourites...Select a brand from main page,
+                it will show you the list of all makeup product categories from that brand. Select a product type to see
+                all the products of that type. Click on the product to save it to your favourites. To
+                see the favourites, click menu on main page and select Favourites</string>
 
     <string-array name="brand_names">
         <item>Select a Brand...</item>

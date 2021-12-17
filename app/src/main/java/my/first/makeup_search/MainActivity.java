@@ -1,6 +1,7 @@
 package my.first.makeup_search;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+
+        if(actionBar!=null){
+            actionBar.setTitle("Choose a makeup brand " + "💄");
+        }
         Spinner spinner = (Spinner) findViewById(R.id.brand_name_spinnner);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -41,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (item.getItemId() == R.id.favouites) {
             Intent intent = new Intent(this, Favourites_Activity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.about_us) {
+            Intent intent = new Intent(this, About_Us.class);
             startActivity(intent);
         }
         return true;

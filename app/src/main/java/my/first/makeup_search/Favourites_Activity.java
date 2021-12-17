@@ -1,6 +1,7 @@
 package my.first.makeup_search;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,7 +35,11 @@ public class Favourites_Activity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
+        ActionBar actionBar = getSupportActionBar();
 
+        if(actionBar!=null){
+            actionBar.setTitle("Favourites");
+        }
 
         dbManager = ((MyApp)getApplication()).getDatabaseManager();
         db = dbManager.getDbInstance(this);
