@@ -55,10 +55,6 @@ public class Product_Types_Activity extends AppCompatActivity implements
         adapter = new ProductTypeRecyclerViewAdapter(this,productList);
         adapter.listener = this;
         recyclerView.setAdapter(adapter);
-
-//        adapter.productTypeList = new ArrayList<>(0);
-//        adapter.notifyDataSetChanged();
-
     }
 
     @Override
@@ -71,15 +67,12 @@ public class Product_Types_Activity extends AppCompatActivity implements
     @Override
     public void APINetworkListener(String jsonString) {
         productList =  jsonService.parseProductList(jsonString);
-        //productList = new ArrayList<Product_Type_Item>(Integer.parseInt("Lipstick"));
         adapter.productTypeList = productList;
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void APINetworkingListerForImage(Bitmap image) {
-
-
 
     }
 
@@ -94,6 +87,4 @@ public class Product_Types_Activity extends AppCompatActivity implements
         startActivity(intent);
 
     }
-
-
 }

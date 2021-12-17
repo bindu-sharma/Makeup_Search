@@ -16,10 +16,7 @@ import java.util.concurrent.Executors;
 
 public class NetworkingService {
 
-//    String iconURL1 = "https://openweathermap.org/img/wn/";
-//    String iconURL2 = "@2x.png";
-
-        String url = "http://makeup-api.herokuapp.com/api/v1/products.json?brand=";
+       String url = "http://makeup-api.herokuapp.com/api/v1/products.json?brand=";
 
         public static final ExecutorService networkingExecutor = Executors.newFixedThreadPool(4);
         static Handler networkHandler = new Handler(Looper.getMainLooper());
@@ -30,7 +27,6 @@ public class NetworkingService {
         }
 
         NetworkingListener listener;
-
 
         public void fetchProductTypes(String text){
             String completeURL = url + text;

@@ -5,48 +5,51 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 public class JsonService {
-//Function to parse JSON for Product Types List
 
     public ArrayList<Product_Type_Item> parseProductList(String jsonProductList) {
-            ArrayList<Product_Type_Item> allProductsFromAPI = new ArrayList<>(0);
+        ArrayList<Product_Type_Item> allProductsFromAPI = new ArrayList<>(0);
+        String productType;
+        Product_Type_Item newProduct;
+        JSONArray jsonArray;
+        JSONObject jsonObject;
+        try {
+            jsonArray = new JSONArray(jsonProductList);
 
-            try {
-                for (int i = 0; i < jsonProductList.length(); i++) {
-                    JSONArray jsonArray = new JSONArray(jsonProductList);
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String productType = jsonObject.getString("product_type");
-                    Product_Type_Item newProduct = new Product_Type_Item(productType);
-                    System.out.println("Element contained" + allProductsFromAPI.contains(newProduct));
-                   if(!(allProductsFromAPI.contains(newProduct))) {
-                       allProductsFromAPI.add(newProduct);
-                    }
+            jsonObject = jsonArray.getJSONObject(0);
+            productType = jsonObject.getString("product_type");
+            newProduct = new Product_Type_Item(productType);
+            System.out.println("**************************");
+            allProductsFromAPI.add(newProduct);
+
+// Preventing duplicate Objects
+
+            for (int i = 1; i <=jsonArray.length()-1; i++) {
+                jsonObject = jsonArray.getJSONObject(i);
+                productType = jsonObject.getString("product_type");
+                System.out.println("*************************");
+
+                //System.out.println(allProductsFromAPI.get(i).getProductTypeName().equals(productType));
+
+                if(!(allProductsFromAPI.get(i-1).getProductTypeName().equals(productType))){
+                    newProduct = new Product_Type_Item(productType);
+                    allProductsFromAPI.add(newProduct);
                 }
 
 
-//                LinkedHashSet<Product_Type_Item> primesWithoutDuplicates
-//                        = new LinkedHashSet<Product_Type_Item>(allProductsFromAPI);
-//
-//                System.out.println("duplcate" + allProductsFromAPI);
-//                System.out.println(primesWithoutDuplicates);
-//
-//                allProductsFromAPI.clear();
-//
-//                allProductsFromAPI.addAll(primesWithoutDuplicates);
-
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-
-            return allProductsFromAPI;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        // List<Product_Type_Item> listWithoutDuplicates = allProductsFromAPI.stream().distinct().collect(Collectors.toList());
+       finally {
+            return allProductsFromAPI;
 
-        //Function to parse JSON for Product Items List
+        }
+    }
+
+    //Function to parse JSON for Product Items List
     public ArrayList<Product_List_Item> parseProductItemList(String jsonProductItemList) {
         ArrayList<Product_List_Item> allProductsItemsFromAPI = new ArrayList<>(0);
 
@@ -57,17 +60,15 @@ public class JsonService {
                 String productName = jsonObject.getString("name");
                 Double productPrice = Double.valueOf(jsonObject.getString("price"));
                 String productImage = jsonObject.getString("image_link");
-
                 allProductsItemsFromAPI.add(new Product_List_Item(productImage,productName,productPrice));
-
-               // System.out.println(allProductsFromAPI);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+System.out.println(allProductsItemsFromAPI);
         return allProductsItemsFromAPI;
     }
 
-    }
+}
+
 

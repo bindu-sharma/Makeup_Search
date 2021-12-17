@@ -10,7 +10,8 @@
     <ImageView android:id="@+id/product_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/LightPink"/>
+        android:background="@color/LightPink"
+        android:contentDescription="NO IMAGE AVAILABLE"/>
 
     <TextView android:id="@+id/product_name"
         android:background="@color/Maroon"
